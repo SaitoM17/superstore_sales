@@ -10,10 +10,14 @@ Este proyecto consiste en un dashboard interactivo y la generación de reportes 
 - [🎯 Propósito](#-propósito)
 - [📦 Conjunto de Datos](#-conjunto-de-datos)
 - [🧪 Desarrollo del Proyecto](#-desarrollo-del-proyecto)
-- [📈 Conclusiones y Recomendaciones](#-conclusiones-y-recomendaciones)
+- [📌 Vista previa del Dashboard](#-vista-previa-del-dashboard)
+- [💡 Insight clave](#-insight-clave)
+- [📈 Recomendaciones](#-recomendaciones)
 - [🛠️ Tecnologías](#️-tecnologías)
 - [⚙️ Instalación](#️-instalación)
+- [📂 Archivos](#-archivos)
 - [👤 Autor](#-autor)
+- [📝 Licencia](#-licencia)
 
 ---
 
@@ -72,7 +76,15 @@ Fuente: [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sa
 
 ---
 
-## 📈 Conclusiones y Recomendaciones
+## 📌 Vista previa del Dashboard
+
+---
+
+## 💡 Insight clave
+
+---
+
+## 📈 Recomendaciones
 
 - [Insight 1]
 - [Insight 2]
@@ -129,6 +141,10 @@ python -m venv venv
     ```
     pip install numpy pandas matplotlib seaborn scikit-learn
     ```
+
+---
+
+## 📂 Archivos
 
 ---
 
