@@ -1,7 +1,7 @@
 # 📊 SuperStore Sales
 # SuperStore Sales Analysis
 
-Este proyecto realiza un análisis [exploratorio / predictivo / descriptivo] de [tema del proyecto]. El conjunto de datos incluye información sobre [breve descripción del contenido del dataset].
+Este proyecto consiste en un dashboard interactivo y la generación de reportes ejecutivos. Ambas herramientas están diseñadas para analizar el rendimiento de la entrega de pedidos. Los datos utilizados provienen de un conjunto de datos real de entregas recopilado por [Rohit Sahoo](https://www.kaggle.com/rohitsahoo).
 
 ---
 
@@ -19,7 +19,7 @@ Este proyecto realiza un análisis [exploratorio / predictivo / descriptivo] de 
 
 ## 🎯 Propósito
 
-El objetivo de este proyecto es [objetivo general del análisis], con el fin de [impacto esperado, decisiones que se tomarán, etc.].
+Analizar el rendimiento de ventas de una tienda minorista (Superstore) en múltiples dimensiones (producto, cliente, categoría, región) para detectar oportunidades de mejora, riesgos y palancas estratégicas.
 
 ---
 
