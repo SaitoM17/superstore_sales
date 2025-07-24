@@ -27,12 +27,26 @@ Analizar el rendimiento de ventas de una tienda minorista (Superstore) en múlti
 
 El conjunto de datos utilizado contiene las siguientes columnas:
 
-- `NombreColumna1`: [Descripción]
-- `NombreColumna2`: [Descripción]
-- `NombreColumna3`: [Descripción]
-- `...`
+- `Row ID`: Id de la fila
+- `Order ID`: Id del pedido
+- `Order Date`: Fecha del pedido
+- `Ship Date`: Fecha de envio
+- `Ship Mode`: Modo barco
+- `Customer ID`: Id del cliente
+- `Customer Name`: Nombre del cliente
+- `Segment`: Segmento
+- `Country`: País
+- `City`: Ciudad
+- `State`: Estado
+- `Postal Code`: Código postal
+- `Region`: Región
+- `Product ID`: Identificación del producto
+- `Category`: Categoría
+- `Sub-Category`: SubCategoría
+- `Product Name`: Nombre del producto
+- `Sales`: Ventas
 
-Fuente: [Nombre de la fuente o “datos simulados/ficticios”].
+Fuente: [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting).
 
 ---
 
