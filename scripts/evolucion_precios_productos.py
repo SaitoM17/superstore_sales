@@ -21,15 +21,12 @@ def obtener_nombre_producto_aleatorio():
 def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
     
     scorer=fuzz.ratio
-    lista_nombre_similares = []
+
     # Obtener la lista de nombres únicos y limpios del DataFrame global
     nombres_unicos = df_store_sales_original['Product Name'].dropna().unique()
 
     print(f"\nBuscando palabras similares a '{palabra_buscada}' con un umbral del {umbral_similitud}%:\n")
 
-    # Encuentra nombres similares a 'palabra_buscada' en la lista de nombres únicos
-    # Usamos process.extractBests para obtener los mejores scores
-    # score_cutoff: solo devuelve coincidencias con un puntaje igual o superior al umbral
     similares = process.extractBests(
         query=palabra_buscada,
         choices=nombres_unicos,
@@ -37,41 +34,22 @@ def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
         score_cutoff=umbral_similitud
     )
 
-    # Filtrar para obtener solo coincidencias que no son idénticas a la palabra_buscada
-    # (fuzzywuzzy puede incluir la palabra_buscada con 100% de similitud si está en choices)
-    resultados_filtrados = [
-        (nombre_similar, score) for nombre_similar, score in similares
+    lista_nombres_similares = [
+        nombre_similar for nombre_similar, score in similares
         if nombre_similar.lower() != palabra_buscada.lower() # Compara de forma insensible a mayúsculas/minúsculas
     ]
 
-    # if resultados_filtrados:
-    #     print(f"Palabras similares encontradas para '{palabra_buscada}':")
-    #     for nombre_similar, score in resultados_filtrados:
-    #         print(f" - '{nombre_similar}' (Similitud: {score}%)")
-    # else:
-    #     print(f"No se encontraron palabras similares a '{palabra_buscada}' con el umbral especificado.")
-
-    if resultados_filtrados:
-        # Palabra similaes encontradas
-        for nombre_similar, score in resultados_filtrados:
-            lista_nombre_similares.append(nombre_similar)
-    else:
-        lista_nombre_similares.append('None')
-
-    return lista_nombre_similares
+    return lista_nombres_similares
 
 # Funcioón para  recorrer la lista de nombres similares
-def recorrer_lista(lista_nombres_similares):
+def imprimir_elementos_lista(lista_nombres_similares, palabra_buscada):
     # Revisar si la lista contiene valores
     if not lista_nombres_similares:
+        print(f"Sin Productos similares a '{palabra_buscada}'")
         return
     
     for nombre_similar in lista_nombres_similares:
-        if nombre_similar == 'None':
-            print('Lista vacia')
-            break
-        else:
-            print(nombre_similar)
+        print(nombre_similar)
 
 # Función para obtener la evolución del precio por producto
 def evolucion_precio_producto(data_frame_x, lista_annios, nom_producto):
@@ -147,9 +125,8 @@ annios = ['2015', '2016', '2017', '2018']
 nombre_producto = obtener_nombre_producto_aleatorio()
 
 resultados = buscar_palabras_similares(nombre_producto,70)
-print(resultados)
 
-recorrer_lista(resultados)
+imprimir_elementos_lista(resultados, nombre_producto)
 
 # evolucion_precio_producto(
 #     data_frame_x=df_lista, 
