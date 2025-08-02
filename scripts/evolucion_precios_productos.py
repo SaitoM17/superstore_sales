@@ -60,6 +60,18 @@ def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
 
     return lista_nombre_similares
 
+# Funcioón para  recorrer la lista de nombres similares
+def recorrer_lista(lista_nombres_similares):
+    # Revisar si la lista contiene valores
+    if not lista_nombres_similares:
+        return
+    
+    for nombre_similar in lista_nombres_similares:
+        if nombre_similar == 'None':
+            print('Lista vacia')
+            break
+        else:
+            print(nombre_similar)
 
 # Función para obtener la evolución del precio por producto
 def evolucion_precio_producto(data_frame_x, lista_annios, nom_producto):
@@ -136,6 +148,8 @@ nombre_producto = obtener_nombre_producto_aleatorio()
 
 resultados = buscar_palabras_similares(nombre_producto,70)
 print(resultados)
+
+recorrer_lista(resultados)
 
 # evolucion_precio_producto(
 #     data_frame_x=df_lista, 
