@@ -21,7 +21,7 @@ def obtener_nombre_producto_aleatorio():
 def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
     
     scorer=fuzz.ratio
-
+    lista_nombre_similares = []
     # Obtener la lista de nombres únicos y limpios del DataFrame global
     nombres_unicos = df_store_sales_original['Product Name'].dropna().unique()
 
@@ -44,14 +44,21 @@ def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
         if nombre_similar.lower() != palabra_buscada.lower() # Compara de forma insensible a mayúsculas/minúsculas
     ]
 
-    if resultados_filtrados:
-        print(f"Palabras similares encontradas para '{palabra_buscada}':")
-        for nombre_similar, score in resultados_filtrados:
-            print(f" - '{nombre_similar}' (Similitud: {score}%)")
-    else:
-        print(f"No se encontraron palabras similares a '{palabra_buscada}' con el umbral especificado.")
+    # if resultados_filtrados:
+    #     print(f"Palabras similares encontradas para '{palabra_buscada}':")
+    #     for nombre_similar, score in resultados_filtrados:
+    #         print(f" - '{nombre_similar}' (Similitud: {score}%)")
+    # else:
+    #     print(f"No se encontraron palabras similares a '{palabra_buscada}' con el umbral especificado.")
 
-    return resultados_filtrados
+    if resultados_filtrados:
+        # Palabra similaes encontradas
+        for nombre_similar, score in resultados_filtrados:
+            lista_nombre_similares.append(nombre_similar)
+    else:
+        lista_nombre_similares.append('None')
+
+    return lista_nombre_similares
 
 
 # Función para obtener la evolución del precio por producto
