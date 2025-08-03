@@ -25,8 +25,6 @@ def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
     # Obtener la lista de nombres únicos y limpios del DataFrame global
     nombres_unicos = df_store_sales_original['Product Name'].dropna().unique()
 
-    print(f"\nBuscando palabras similares a '{palabra_buscada}' con un umbral del {umbral_similitud}%:\n")
-
     similares = process.extractBests(
         query=palabra_buscada,
         choices=nombres_unicos,
@@ -40,16 +38,6 @@ def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
     ]
 
     return lista_nombres_similares
-
-# Funcioón para  recorrer la lista de nombres similares
-def imprimir_elementos_lista(lista_nombres_similares, palabra_buscada):
-    # Revisar si la lista contiene valores
-    if not lista_nombres_similares:
-        print(f"Sin Productos similares a '{palabra_buscada}'")
-        return
-    
-    for nombre_similar in lista_nombres_similares:
-        print(nombre_similar)
 
 # Función para obtener la evolución del precio por producto
 def evolucion_precio_producto(data_frame_x, lista_annios, nom_producto):
@@ -118,7 +106,7 @@ df_2016_original = df_store_sales_original[df_store_sales_original['Order Year']
 df_2017_original = df_store_sales_original[df_store_sales_original['Order Year'] == 2017]
 df_2018_original = df_store_sales_original[df_store_sales_original['Order Year'] == 2018]
 
-# Parametros a ingresar a la función
+# Parametros a ingresar a las funciones
 df_lista = [df_2015_original, df_2016_original, df_2017_original, df_2018_original]
 annios = ['2015', '2016', '2017', '2018']
 
@@ -126,10 +114,30 @@ nombre_producto = obtener_nombre_producto_aleatorio()
 
 resultados = buscar_palabras_similares(nombre_producto,70)
 
-imprimir_elementos_lista(resultados, nombre_producto)
+print('-' * 100)
+print(f"Evolución del precio del producto '{nombre_producto}'")
+print('-' * 100)
+evolucion_precio_producto(
+    data_frame_x=df_lista, 
+    lista_annios=annios, 
+    nom_producto=nombre_producto
+)
 
-# evolucion_precio_producto(
-#     data_frame_x=df_lista, 
-#     lista_annios=annios, 
-#     nom_producto=nombre_producto
-# )
+print('-' * 100)
+
+if not resultados:
+    print(f"Sin productos similarea para -> '{nombre_producto}'")
+else:
+    print(f"\nEvolución del precio de productos similares a -> '{nombre_producto}'")
+    for i,nombre_similar in enumerate(resultados):
+        print(f'{i}.-{nombre_similar}')
+
+    print('-' * 100)
+
+    for nombre_similar in resultados:
+        evolucion_precio_producto(
+            data_frame_x=df_lista,
+            lista_annios=annios,
+            nom_producto=nombre_similar
+        )
+        print('-' * 100)
