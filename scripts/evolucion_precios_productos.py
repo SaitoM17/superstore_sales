@@ -11,12 +11,15 @@ df_store_sales_original = pd.read_csv('./data/raw/train.csv')
 
 
 # Explorar el conjunto de datos con Outliers y tomar varios nombres de productos
-def obtener_nombre_producto_aleatorio():
-    nombre_productos = df_store_sales_outliers['Product Name'].value_counts()
-    datos_aleatorios = nombre_productos.sample(n=1)
-    nombre_producto_aleatorio = datos_aleatorios.index[0]
+def obtener_nombre_producto_categoria_aleatorio():    
 
-    return nombre_producto_aleatorio
+    fila_aleatoria = df_store_sales_outliers.sample(n=1, random_state=42) # 'random_state' para reproducibilidad si es necesario
+
+    # Extraer los valores de 'Product Name' y 'Category' de esa fila
+    nombre_producto_aleatorio = fila_aleatoria['Product Name'].iloc[0]
+    nombre_categoria_aleatorio = fila_aleatoria['Category'].iloc[0]
+
+    return nombre_producto_aleatorio, nombre_categoria_aleatorio
 
 def buscar_palabras_similares(palabra_buscada, umbral_similitud=90):
     
@@ -110,7 +113,7 @@ df_2018_original = df_store_sales_original[df_store_sales_original['Order Year']
 df_lista = [df_2015_original, df_2016_original, df_2017_original, df_2018_original]
 annios = ['2015', '2016', '2017', '2018']
 
-nombre_producto = obtener_nombre_producto_aleatorio()
+nombre_producto, nombre_categoria = obtener_nombre_producto_categoria_aleatorio()
 
 resultados = buscar_palabras_similares(nombre_producto,70)
 
