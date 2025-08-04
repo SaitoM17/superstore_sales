@@ -13,7 +13,7 @@ df_store_sales_original = pd.read_csv('./data/raw/train.csv')
 # Explorar el conjunto de datos con Outliers y tomar varios nombres de productos
 def obtener_nombre_producto_categoria_aleatorio():    
 
-    fila_aleatoria = df_store_sales_outliers.sample(n=1, random_state=42) # 'random_state' para reproducibilidad si es necesario
+    fila_aleatoria = df_store_sales_outliers.sample(n=1)
 
     # Extraer los valores de 'Product Name' y 'Category' de esa fila
     nombre_producto_aleatorio = fila_aleatoria['Product Name'].iloc[0]
@@ -119,6 +119,7 @@ resultados = buscar_palabras_similares(nombre_producto,70)
 
 print('-' * 100)
 print(f"Evolución del precio del producto '{nombre_producto}'")
+print(f"De la categoria -> '{nombre_categoria}'")
 print('-' * 100)
 evolucion_precio_producto(
     data_frame_x=df_lista, 
