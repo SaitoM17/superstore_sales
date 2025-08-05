@@ -23,7 +23,27 @@ Este proyecto consiste en un dashboard interactivo y la generación de reportes 
 
 ## 🎯 Propósito
 
-Analizar el rendimiento de ventas de una tienda minorista (Superstore) en múltiples dimensiones (producto, cliente, categoría, región) para detectar oportunidades de mejora, riesgos y palancas estratégicas.
+El proyecto busca evaluar el comportamiento de las ventas de una tienda minorista a partir de datos históricos, considerando diferentes dimensiones clave como producto, cliente, categoría y región. El objetivo es descubrir patrones relevantes, identificar áreas de oportunidad, anticipar riesgos potenciales y establecer estrategias basadas en datos que impulsen decisiones comerciales informadas.
+
+- Obtener KPI's:
+   - KPI's de Ventas y Rendimiento Financiero
+   - KPI's de Eficiencia Operativa
+   - KPI's de Clientes y Mercado
+
+- Analizar el rendimiento de ventas
+   - Analizar los ingresos por productos vendidos
+   - Analizar su comportamiento en distintos contextos
+
+- Análisis de múltiples dimensiones (Productos, clientes, categorías y región)
+
+- Detectar oportunidades de mejora
+   - ¿Dónde se puede aumentar ventas, eficiencia o márgenes?
+
+- Identificar riesgos
+   - ¿Qué productos, categorías, clientes o región tiene bajas las ventas y representas un riesgo?
+
+- Encontrar palancas estratégicas
+   - ¿Qué están funcionando bien y si se puede escalar?
 
 ---
 
