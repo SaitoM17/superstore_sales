@@ -11,4 +11,8 @@ df_store_sales['Ship Date'] = pd.to_datetime(df_store_sales['Ship Date'], format
 df_store_sales['Difference in Days'] = (df_store_sales['Ship Date'] - df_store_sales['Order Date'])
 promedio_dias = df_store_sales['Difference in Days'].dt.days.mean()
 
-print(f'Tiempo Promedio de Entrega(días): {promedio_dias:.0f} días')
+print(f'''
+    KPI's de la Eficiencia Operativa
+
+Tiempo Promedio de Entrega(Días): {promedio_dias:.0f} días
+''')
