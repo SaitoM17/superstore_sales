@@ -11,6 +11,7 @@ cantidad_registros, columnas = df_store_sales.shape
 ventas_promedio_pedido = suma_sales/cantidad_registros
 
 # Ventas por categoria y sub-categoria
+categoria = df_store_sales.groupby('Category')['Sales'].sum()
 categoria_subcategoria = df_store_sales.groupby(['Category','Sub-Category'])['Sales'].sum()
 
 # Ventas por región
@@ -21,6 +22,8 @@ print(f'''
 
 Ventas Totales: ${suma_sales:.2f}
 Ventas Promedio por Pedido: ${ventas_promedio_pedido:.2f}
+
+Ventas pro Categoria\n{categoria}
 
 Ventas por Categoria y Sub-Categoria\n{categoria_subcategoria}
 
