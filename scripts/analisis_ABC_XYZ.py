@@ -57,7 +57,7 @@ else:
         ))
 
         if opcion == 1:
-            clasificacion.to_csv('./data/processed/frequent_itemsets.csv', index=False)
+            clasificacion.to_csv('./data/processed/Clasificacion_ABC_XYZ.csv', index=False)
             print('Archivos guardados')
         else:
             print('No se guardaron los archivos de clientes VIP y en riesgo.')
