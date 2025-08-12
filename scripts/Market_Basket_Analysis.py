@@ -17,3 +17,6 @@ frequent_itemsets = apriori(basket, min_support=0.02, use_colnames=True)
 
 # Reglas de asociación
 reglas = association_rules(frequent_itemsets, metric='lift', min_threshold=1)
+
+# Ordenar por lift más interesante
+reglas = reglas.sort_values(by='lift', ascending=False)
