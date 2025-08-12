@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from datetime import datetime
 
 # Carga de datos
 df_store_sales = pd.read_csv('./data/processed/store_sales_limpio.csv')
@@ -11,3 +12,12 @@ df_store_sales['Ship Date'] = pd.to_datetime(df_store_sales['Ship Date'], format
 
 # Fecha de referencia
 fecha_referencia = df_store_sales['Order Date'].max()
+
+# Calcular métricas RFM
+rfm = df_store_sales.groupby('Customer ID').agg({
+    'Order Date': lambda x: (fecha_referencia - x.max()).days,
+    'Customer ID': 'count',
+    'Sales': 'sum'
+})
+
+print(rfm)
