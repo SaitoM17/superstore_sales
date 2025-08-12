@@ -25,3 +25,7 @@ def clasificar_abc(pct_acum):
         return 'C'
     
 ventas_totales['ABC'] = ventas_totales['Porcentaje_acumulado'].apply(clasificar_abc)
+
+# Calcular variabilidad de la demanda
+variabilidad = df_store_sales.groupby('Product Name')['Sales'].agg(['mean','std']).reset_index()
+variabilidad['cv'] = (variabilidad['std'] / variabilidad['mean']) * 100
