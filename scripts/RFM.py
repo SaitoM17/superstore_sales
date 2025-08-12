@@ -20,4 +20,11 @@ rfm = df_store_sales.groupby('Customer ID').agg({
     'Sales': 'sum'
 })
 
+# Renombrar columnas
+rfm.rename(columns={
+    'Order Date': 'Recency',
+    'Customer ID': 'Frequency',
+    'Sales': 'Monetary'
+}, inplace=True)
+
 print(rfm)
