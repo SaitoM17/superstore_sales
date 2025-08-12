@@ -30,16 +30,22 @@ else:
 
     print('\nReglas de Asociación')
     print(reglas[['antecedents', 'consequents', 'support', 'confidence', 'lift']])
+    try:
+        opcion = int(input(
+            '¿Desea guardar los resultados en archivos CSV?\n'
+            '(1 = Guardar los archivos, cualquier otra tecla = No guardar)\n> '
+        ))
 
-    opcion = int(input(
-        '¿Desea guardar los resultados en archivos CSV?\n'
-        '(1 = Guardar los archivos, cualquier otra tecla = No guardar)\n> '
-    ))
+        if opcion == 1:
+            frequent_itemsets.to_csv('./data/processed/frequent_itemsets.csv', index=False)
+            reglas.to_csv('./data/processed/reglas.csv', index=False)
 
-    if opcion == 1:
-        frequent_itemsets.to_csv('./data/processed/frequent_itemsets.csv', index=False)
-        reglas.to_csv('./data/processed/reglas.csv', index=False)
+            print('Archivos guardados')
+        else:
+            print('No se guardaron los archivos de clientes VIP y en riesgo.')
+            
+    except ValueError:
+        print('Entrada inválida. Debe ingresar un número (por ejemplo, 1 para guardar).')
 
-        print('Archivos guardados')
-    else:
-        print('No se guardaron los archivos de clientes VIP y en riesgo.')
+    except Exception as e:
+        print(f'Ocurrió un error al guardar los archivos: {e}')
