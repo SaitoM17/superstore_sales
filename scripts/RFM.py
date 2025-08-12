@@ -45,3 +45,13 @@ def clasificacion_cliente(row):
         return 'Regular'
 
 rfm['Segmento'] = rfm.apply(clasificacion_cliente, axis=1)
+
+# Resultados
+clientes_VIP = rfm[rfm['Segmento'] == 'VIP']
+clientes_riesgo = rfm[rfm['Segmento'] == 'En riesgo']
+
+print('Clientes VIP')
+print(clientes_VIP)
+
+print('Clientes En riesgo')
+print(clientes_riesgo)
