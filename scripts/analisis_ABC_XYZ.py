@@ -45,5 +45,25 @@ variabilidad['XYZ'] = variabilidad['cv'].apply(clasificar_xyz)
 clasificacion = pd.merge(ventas_totales, variabilidad, on='Product Name')
 clasificacion['ABC_XYZ'] = clasificacion['ABC'] + clasificacion['XYZ']
 
-# Mostrar resultados
-print(clasificacion)
+if clasificacion.empty:
+    print('No se encontraron conjuntos frecuentes con el soporte especificado')
+else:    
+    # Mostrar resultados
+    print(clasificacion)
+    try:
+        opcion = int(input(
+            '¿Desea guardar los resultados en archivos CSV?\n'
+            '(1 = Guardar los archivos, cualquier otra tecla = No guardar)\n> '
+        ))
+
+        if opcion == 1:
+            clasificacion.to_csv('./data/processed/frequent_itemsets.csv', index=False)
+            print('Archivos guardados')
+        else:
+            print('No se guardaron los archivos de clientes VIP y en riesgo.')
+            
+    except ValueError:
+        print('Entrada inválida. Debe ingresar un número (por ejemplo, 1 para guardar).')
+
+    except Exception as e:
+        print(f'Ocurrió un error al guardar los archivos: {e}')
