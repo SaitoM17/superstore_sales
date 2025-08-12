@@ -27,4 +27,10 @@ rfm.rename(columns={
     'Sales': 'Monetary'
 }, inplace=True)
 
-print(rfm)
+# Calcular puntuación RFM del 1 al 5
+rfm['R_score'] = pd.qcut(rfm['R_score'], 5, labels=[1,2,3,4,5])
+rfm['F_score'] = pd.qcut(rfm['F_score'].rank(method='first'), 5, labels=[1,2,3,4,5])
+rfm['M_score'] = pd.qcut(rfm['M_score'], 5, labels=[1,2,3,4,5])
+
+# Calculo de score final
+rfm['RFM_score'] = rfm['R_score'].astype(str) + rfm['F_score'].astype(str) + rfm['M_score'].astype(str)
