@@ -14,4 +14,14 @@ ventas_totales.rename(columns={
 ventas_totales = ventas_totales.sort_values(by='Sales_totales', ascending=False)
 ventas_totales['Porcentaje'] = (ventas_totales['Sales_totales'] / ventas_totales['Sales_totales'].sum() * 100)
 ventas_totales['Porcentaje_acumulado'] = ventas_totales['Porcentaje'].cumsum()
-print(ventas_totales)
+
+# Clasificar ABC
+def clasificar_abc(pct_acum):
+    if pct_acum <= 80:
+        return 'A'
+    elif pct_acum <= 95:
+        return 'B'
+    else:
+        return 'C'
+    
+ventas_totales['ABC'] = ventas_totales['Porcentaje_acumulado'].apply(clasificar_abc)
