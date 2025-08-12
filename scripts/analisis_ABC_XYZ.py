@@ -40,3 +40,7 @@ def clasificar_xyz(cv):
         return 'Z'
     
 variabilidad['XYZ'] = variabilidad['cv'].apply(clasificar_xyz)
+
+# Unir clasificación
+clasificacion = pd.merge(ventas_totales, variabilidad, on='Product Name')
+clasificacion['ABC_XYZ'] = clasificacion['ABC'] + clasificacion['XYZ']
