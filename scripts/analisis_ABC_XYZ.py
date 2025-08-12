@@ -29,3 +29,14 @@ ventas_totales['ABC'] = ventas_totales['Porcentaje_acumulado'].apply(clasificar_
 # Calcular variabilidad de la demanda
 variabilidad = df_store_sales.groupby('Product Name')['Sales'].agg(['mean','std']).reset_index()
 variabilidad['cv'] = (variabilidad['std'] / variabilidad['mean']) * 100
+
+# Clasificación XYZ
+def clasificar_xyz(cv):
+    if cv <= 10:
+        return 'X'
+    elif cv <= 25:
+        return 'Y'
+    else:
+        return 'Z'
+    
+variabilidad['XYZ'] = variabilidad['cv'].apply(clasificar_xyz)
