@@ -14,3 +14,6 @@ basket = basket.applymap(lambda x: 1 if x > 0 else 0)
 
 # Aplicar Apriori para encontrar combinaciones frecuentes
 frequent_itemsets = apriori(basket, min_support=0.02, use_colnames=True)
+
+# Reglas de asociación
+reglas = association_rules(frequent_itemsets, metric='lift', min_threshold=1)
