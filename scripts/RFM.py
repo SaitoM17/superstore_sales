@@ -52,3 +52,24 @@ print(clientes_VIP)
 
 print('Clientes En riesgo')
 print(clientes_riesgo)
+
+# Guardar resultados
+try:
+    opcion = int(input(
+        '¿Desea guardar los resultados en archivos CSV?\n'
+        '(1 = Guardar los archivos, cualquier otra tecla = No guardar)\n> '
+    ))
+
+    if opcion == 1:
+        clientes_VIP.to_csv('./data/processed/clientes_vip.csv', index=False)
+        clientes_riesgo.to_csv('./data/processed/clientes_riesgo.csv', index=False)
+
+        print('Archivos guardados')
+    else:
+        print('No se guardaron los archivos de clientes VIP y en riesgo.')
+
+except ValueError:
+    print('Entrada inválida. Debe ingresar un número (por ejemplo, 1 para guardar).')
+
+except Exception as e:
+    print(f'Ocurrió un error al guardar los archivos: {e}')
