@@ -1,10 +1,7 @@
 import pandas as pd
-import numpy as np
-from datetime import datetime
 
 # Carga de datos
 df_store_sales = pd.read_csv('./data/processed/store_sales_limpio.csv')
-print(df_store_sales.head(5))
 
 # Transformación de Order Date y Ship Date a formato fecha
 df_store_sales['Order Date'] = pd.to_datetime(df_store_sales['Order Date'], format='%d/%m/%Y')
@@ -28,9 +25,9 @@ rfm.rename(columns={
 }, inplace=True)
 
 # Calcular puntuación RFM del 1 al 5
-rfm['R_score'] = pd.qcut(rfm['R_score'], 5, labels=[1,2,3,4,5])
-rfm['F_score'] = pd.qcut(rfm['F_score'].rank(method='first'), 5, labels=[1,2,3,4,5])
-rfm['M_score'] = pd.qcut(rfm['M_score'], 5, labels=[1,2,3,4,5])
+rfm['R_score'] = pd.qcut(rfm['Recency'], 5, labels=[5,4,3,2,1])
+rfm['F_score'] = pd.qcut(rfm['Frequency'].rank(method='first'), 5, labels=[1,2,3,4,5])
+rfm['M_score'] = pd.qcut(rfm['Monetary'], 5, labels=[1,2,3,4,5])
 
 # Calculo de score final
 rfm['RFM_score'] = rfm['R_score'].astype(str) + rfm['F_score'].astype(str) + rfm['M_score'].astype(str)
