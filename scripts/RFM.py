@@ -34,3 +34,14 @@ rfm['M_score'] = pd.qcut(rfm['M_score'], 5, labels=[1,2,3,4,5])
 
 # Calculo de score final
 rfm['RFM_score'] = rfm['R_score'].astype(str) + rfm['F_score'].astype(str) + rfm['M_score'].astype(str)
+
+# Clasificación de clientes
+def clasificacion_cliente(row):
+    if row['R_score'] >= 4 and row['F_score'] >= 4 and row['M_score'] >= 4:
+        return 'VIP'
+    elif row['R_score'] <= 2 and row['F_score'] <= 2:
+        return 'En riesgo'
+    else:
+        return 'Regular'
+
+rfm['Segmento'] = rfm.apply(clasificacion_cliente, axis=1)
