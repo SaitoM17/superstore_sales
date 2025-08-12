@@ -4,19 +4,17 @@ from mlxtend.frequent_patterns import apriori, association_rules
 # Carga de datos
 df_store_sales = pd.read_csv('./data/processed/store_sales_limpio.csv')
 
-# Preparación de datos
-basket = (df_store_sales.groupby(['Order ID', 'Product Name'])['Product Name']
-          .count().unstack().reset_index().fillna(0)
-          .set_index('Order ID'))
+# Crear matriz binaria de productos por pedido
+basket = pd.crosstab(df_store_sales['Order ID'], df_store_sales['Product Name']) > 0
 
-# Convertir cantidades de 0 a 1
-basket = basket.apply(lambda x: x > 0)
+# Aplicar Apriori
+frequent_itemsets = apriori(basket, min_support=0.002, use_colnames=True)
 
-# Aplicar Apriori para encontrar combinaciones frecuentes
-frequent_itemsets = apriori(basket, min_support=0.005, use_colnames=True)
+# Filtrar solo combinaciones de más de un producto
+frequent_itemsets = frequent_itemsets[frequent_itemsets['itemsets'].apply(len) > 1]
 
 if frequent_itemsets.empty:
-    print('No se encontraron conjuntos frecuentes')
+    print('No se encontraron conjuntos frecuentes con el soporte especificado')
 else:    
     # Reglas de asociación
     reglas = association_rules(frequent_itemsets, metric='lift', min_threshold=1)
