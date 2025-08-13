@@ -67,3 +67,15 @@ sns.scatterplot(
 )
 plt.title('Segmentación de Clientes (K-Means)')
 plt.show()
+
+# Interpretación
+for cluster_id, row in perfil_clusters.iterrows():
+    print(f'\nCluster {cluster_id}:')
+    if row['Recency'] < clientes['Recency'].mean() and row['Frequency'] > clientes['Frequency'].mean():
+        print('Compradores Frecuentes')
+    elif row['Recency'] > clientes['Recency'].mean() and row['Frequency'] < clientes['Frequency'].mean():
+        print('Clientes inanctivos')
+    elif row['Frequency'] > clientes['Frequency'].mean() and row['Monetary'] > clientes['Monetary'].mean():
+        print('Grandes compradores')
+    else:
+        print('Compradores ocasionales')
