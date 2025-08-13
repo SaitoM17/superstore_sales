@@ -36,7 +36,7 @@ forecast = model.predict(future)
 # Eliminar valores negativos en yhat
 forecast['yhat'] = forecast['yhat'].clip(lower=0)
 
-# 8. Extraer resultados 
+# Extraer resultados 
 result = forecast[["ds", "yhat", "yhat_lower", "yhat_upper"]]
 
 # Gráfico combinado: ventas reales + predicción
