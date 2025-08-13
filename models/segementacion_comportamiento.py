@@ -17,13 +17,11 @@ clientes = df_store_sales.groupby('Customer ID').agg({
     'Order Date': lambda x: (fecha_ultima - x.max()).days,
     'Customer ID': 'count',
     'Sales': 'sum'
-})
-
-clientes.rename(columns={
+}).rename(columns={
     'Order Date': 'Recency',
     'Customer ID': 'Frequency',
     'Sales': 'Monetary'
-}, inplace=True)
+}).reset_index()
 
 # Escalar datos
 caracteristicas = ['Recency', 'Frequency', 'Monetary']
@@ -50,11 +48,11 @@ clientes['Cluster'] = kmeans.fit_predict(clientes_escalador)
 
 # Perfil de cada cluster
 perfil_clusters = clientes.groupby('Cluster').agg({
-    "Recency": "mean",
-    "Frequency": "mean",
-    "Monetary": "mean",
-    "Frequency": "count" # Deberia ser Customer ID
-}).rename(columns={"Frequency": "Num_Clientes"}).round(2)
+    'Recency': 'mean',
+    'Frequency': 'mean',
+    'Monetary': "mean",
+    'Customer ID': 'count' # Deberia ser Customer ID
+}).rename(columns={'Customer ID': 'Num_Clientes'}).round(2)
 
 print('Perfil de Clusters')
 print(perfil_clusters)
