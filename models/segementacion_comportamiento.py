@@ -39,6 +39,6 @@ for k in range(2, 10):
 
 plt.plot(range(2, 10), inertia, marker='o')
 plt.xlabel('Número de Clusters')
-plt.ylabel('Inercia (Within Sum of Squares)')
+plt.ylabel('Inercia (Dentro de la suma de cuadrados)')
 plt.title('Método del Codo')
 plt.show()
