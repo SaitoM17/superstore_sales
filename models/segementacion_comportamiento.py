@@ -42,3 +42,8 @@ plt.xlabel('Número de Clusters')
 plt.ylabel('Inercia (Dentro de la suma de cuadrados)')
 plt.title('Método del Codo')
 plt.show()
+
+# Entrenar modelo con k óptimo
+k_optimo = 4
+kmeans = KMeans(n_clusters=k_optimo, random_state=42, n_init=10)
+clientes['Cluster'] = kmeans.fit_predict(clientes_escalador)
