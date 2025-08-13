@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 # Carga de conjunto de datos
 df_store_sales = pd.read_csv('./data/processed/store_sales_limpio.csv')
@@ -21,4 +22,7 @@ clientes.rename(columns={
     'Sales': 'Monetary'
 }, inplace=True)
 
-print(clientes)
+# Escalar datos
+caracteristicas = ['Recency', 'Frecuency', 'Monetary']
+escalador = StandardScaler()
+clientes_escalador = escalador.fit_transform(clientes[caracteristicas])
