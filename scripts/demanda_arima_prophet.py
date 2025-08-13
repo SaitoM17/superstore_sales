@@ -60,3 +60,21 @@ plt.show()
 # Mostrar resumen
 print(f"Proyección de ventas para {producto}:")
 print(result.tail(12))
+
+try:
+    opcion = int(input(
+        '¿Desea guardar los resultados en archivos CSV?\n'
+        '(1 = Guardar los archivos, cualquier otra tecla = No guardar)\n> '
+    ))
+
+    if opcion == 1:
+        result.to_csv(f'./data/processed/proyeccion_{producto}.csv', index=False)
+        print('Archivos guardados')
+    else:
+        print('No se guardaron los archivos de clientes VIP y en riesgo.')
+            
+except ValueError:
+    print('Entrada inválida. Debe ingresar un número (por ejemplo, 1 para guardar).')
+
+except Exception as e:
+    print(f'Ocurrió un error al guardar los archivos: {e}')
