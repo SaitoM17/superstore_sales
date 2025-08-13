@@ -8,8 +8,52 @@ df_store_sales = pd.read_csv('./data/processed/store_sales_limpio.csv')
 # Fecha
 df_store_sales['Order Date'] = pd.to_datetime(df_store_sales['Order Date'], format='%d/%m/%Y')
 
+# Selección de Categoria
+categorias_unicas = df_store_sales['Category'].unique()
+
+print('Categorías existentes')
+for i in categorias_unicas:
+    print(i)
+
+# Bucle para validar la selección de categoría
+while True:
+    categoria = str(input('Seleccione una Categoría válida: '))
+    if categoria in categorias_unicas:
+        categoria_seleccionda = df_store_sales[df_store_sales['Category'] == categoria]
+        break # Si la categoría es válida, salimos del bucle
+    else:
+        print('Error: La categoría seleccionada no existe. Intente de nuevo.')
+
+# Selección de Sub-Categoria
+sub_categoria_unica = categoria_seleccionda['Sub-Category'].unique()
+print(f'\nSub-Categorías de {categoria} ')
+for i in sub_categoria_unica:
+    print(i)
+
+# Bucle para validar la selección de sub-categoría
+while True:
+    sub_categoria = str(input('Seleccione una Sub-categoría válida: '))
+    if sub_categoria in sub_categoria_unica:
+        sub_categoria_seleccionada = categoria_seleccionda[categoria_seleccionda['Sub-Category'] == sub_categoria]
+        break # Si es válida, salimos
+    else:
+        print('Error: La sub-categoría seleccionada no existe. Intente de nuevo.')
+
+# Selección de producto
+productos_unicos = sub_categoria_seleccionada['Product Name'].unique()
+print(f'\nNombre de Productos de la Sub-Caegoria {sub_categoria}')
+for i in productos_unicos:
+    print(i)
+
+# Bucle para validar la selección de producto
+while True:
+    producto = str(input('Ingrese el nombre del producto válido: '))
+    if producto in productos_unicos:
+        break # Si el producto es válido, salimos
+    else:
+        print('Error: El producto seleccionado no existe. Intente de nuevo.')
+print()
 # Filtrar por productos
-producto = "Eldon Fold 'N Roll Cart System"
 df_producto = df_store_sales[df_store_sales['Product Name'] == producto]
 
 # Agrupar por semana o mes usando la columna 'Order Date'
