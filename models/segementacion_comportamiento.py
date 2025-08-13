@@ -58,3 +58,14 @@ perfil_clusters = clientes.groupby('Cluster').agg({
 
 print('Perfil de Clusters')
 print(perfil_clusters)
+
+# Visualizar cluster
+sns.scatterplot(
+    data=clientes,
+    x='Frequency',
+    y='Monetary',
+    hue='Cluster',
+    palette='Set2'
+)
+plt.title('Segmentación de Clientes (K-Means)')
+plt.show()
