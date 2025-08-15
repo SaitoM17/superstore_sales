@@ -91,9 +91,6 @@ Fuente: [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sa
 5. **Modelado o reportes (opcional)**:
    - [Si aplica: modelos de ML, clustering, predicciones, etc.]
 
-6. **Conclusiones y recomendaciones**:
-   - Síntesis de hallazgos clave y propuestas de acción.
-
 ---
 
 ## 📌 Vista previa del Dashboard
