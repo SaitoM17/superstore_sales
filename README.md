@@ -143,8 +143,309 @@ Finalmente, el conjunto de datos, ahora limpio y preparado, se ha guardado en un
 
 ***Archivo:*** [limpieza.ipynb](notebooks/limpieza.ipynb)
 
-3. **Análisis exploratorio de datos (EDA)**:
-   - [Ej. Distribución, correlaciones, agrupaciones, etc.]
+### 4. **Análisis exploratorio de datos (EDA)**
+Ahora que el conjunto de datos está limpio, es posible proceder al análisis de los principales indicadores de rendimiento (KPIs) para obtener información valiosa sobre el negocio.
+
+**KPI's de Ventas y Rendimiento Financiero**
+* Los ingresos totales acumulados a lo largo del periodo analizado, que reflejan el rendimiento global del negocio.
+* El valor promedio de cada transacción, un indicador clave para entender el tamaño de las compras de los clientes.
+* El análisis de ventas por categoría y subcategoría proporciona una visión detallada de los productos que más contribuyen a los ingresos. La categoría de Tecnología es la más rentable, seguida de Mobiliario y Material de Oficina.
+* La distribución geográfica de las ventas revela cuáles son las regiones más importantes para el negocio.
+
+```Bash
+   KPI's de Ventas y Rendimiento Financiero
+
+Ventas Totales: $2261536.78
+Ventas Promedio por Pedido: $230.77
+
+Ventas pro Categoria
+Category
+Furniture          728658.5757
+Office Supplies    705422.3340
+Technology         827455.8730
+Name: Sales, dtype: float64
+
+Ventas por Categoria y Sub-Categoria
+Category         Sub-Category
+Furniture        Bookcases       113813.1987
+                 Chairs          322822.7310
+                 Furnishings      89212.0180
+                 Tables          202810.6280
+Office Supplies  Appliances      104618.4030
+                 Art              26705.4100
+                 Binders         200028.7850
+                 Envelopes        16128.0460
+                 Fasteners         3001.9600
+                 Labels           12347.7260
+                 Paper            76828.3040
+                 Storage         219343.3920
+                 Supplies         46420.3080
+Technology       Accessories     164186.7000
+                 Copiers         146248.0940
+                 Machines        189238.6310
+                 Phones          327782.4480
+Name: Sales, dtype: float64
+
+Ventas por Región
+Region
+Central    492646.9132
+East       669518.7260
+South      389151.4590
+West       710219.6845
+Name: Sales, dtype: float64
+```
+
+El análisis de los ingresos totales por producto ha permitido identificar a los 10 productos más vendidos en términos de ingresos acumulados a lo largo de los cuatro años. 
+![Productos con Más Ventas (Top 10)](reports/figures/productos_topmas_ventas.png)
+El producto con el ingreso más alto es la Canon imageCLASS 2200 Advanced Copier, que generó $61,599.82 USD.
+
+![Comportamiento de las Ventas](reports/figures/comportamiento_ventas_annios.png)
+El comportamiento de las ventas a lo largo de los años 2015 a 2018 muestra un claro patrón estacional. Como se puede ver en los gráficos, los meses de septiembre, noviembre y diciembre son consistentemente los de mayores ventas, lo que probablemente se deba a la temporada de festividades. Por el contrario, los meses de febrero y agosto registran las ventas más bajas.
+
+Se ha obtenido un desglose de los ingresos generados por los clientes, destacando a aquellos que han aportado mayores ventas. Sean Miller es el cliente con el mayor ingreso registrado, con $25,043.05 USD. Se identificó que los clientes más rentables pertenecen principalmente a los segmentos de Home Office y Corporate.
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Customer ID</th>
+      <th>Customer Name</th>
+      <th>Segment</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SM-20320</th>
+      <th>Sean Miller</th>
+      <th>Home Office</th>
+      <td>25043.050</td>
+    </tr>
+    <tr>
+      <th>TC-20980</th>
+      <th>Tamara Chand</th>
+      <th>Corporate</th>
+      <td>19052.218</td>
+    </tr>
+    <tr>
+      <th>RB-19360</th>
+      <th>Raymond Buch</th>
+      <th>Consumer</th>
+      <td>15117.339</td>
+    </tr>
+    <tr>
+      <th>TA-21385</th>
+      <th>Tom Ashbrook</th>
+      <th>Home Office</th>
+      <td>14595.620</td>
+    </tr>
+    <tr>
+      <th>AB-10105</th>
+      <th>Adrian Barton</th>
+      <th>Consumer</th>
+      <td>14473.571</td>
+    </tr>
+    <tr>
+      <th>KL-16645</th>
+      <th>Ken Lonsdale</th>
+      <th>Consumer</th>
+      <td>14175.229</td>
+    </tr>
+    <tr>
+      <th>SC-20095</th>
+      <th>Sanjit Chand</th>
+      <th>Consumer</th>
+      <td>14142.334</td>
+    </tr>
+    <tr>
+      <th>HL-15040</th>
+      <th>Hunter Lopez</th>
+      <th>Consumer</th>
+      <td>12873.298</td>
+    </tr>
+    <tr>
+      <th>SE-20110</th>
+      <th>Sanjit Engle</th>
+      <th>Consumer</th>
+      <td>12209.438</td>
+    </tr>
+    <tr>
+      <th>CC-12370</th>
+      <th>Christopher Conant</th>
+      <th>Consumer</th>
+      <td>12129.072</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+El análisis de ingresos por categorías y subcategorías revela cuáles son las áreas de negocio más rentables. Las subcategorías de Phones, Chairs y Storage son las que más ingresos generan, dominando los sectores de Tecnología, Mobiliario y Material de Oficina.
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <th>Sub-Category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Technology</th>
+      <th>Phones</th>
+      <td>327782.4480</td>
+    </tr>
+    <tr>
+      <th>Furniture</th>
+      <th>Chairs</th>
+      <td>322822.7310</td>
+    </tr>
+    <tr>
+      <th>Office Supplies</th>
+      <th>Storage</th>
+      <td>219343.3920</td>
+    </tr>
+    <tr>
+      <th>Furniture</th>
+      <th>Tables</th>
+      <td>202810.6280</td>
+    </tr>
+    <tr>
+      <th>Office Supplies</th>
+      <th>Binders</th>
+      <td>200028.7850</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">Technology</th>
+      <th>Machines</th>
+      <td>189238.6310</td>
+    </tr>
+    <tr>
+      <th>Accessories</th>
+      <td>164186.7000</td>
+    </tr>
+    <tr>
+      <th>Copiers</th>
+      <td>146248.0940</td>
+    </tr>
+    <tr>
+      <th>Furniture</th>
+      <th>Bookcases</th>
+      <td>113813.1987</td>
+    </tr>
+    <tr>
+      <th>Office Supplies</th>
+      <th>Appliances</th>
+      <td>104618.4030</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Finalmente, se ha obtenido información sobre los ingresos por ubicación geográfica, desglosando los datos por país, región, estado y ciudad. Las ciudades de Jamestown (NY) y Lafayette (IN) son las que reportan mayores ingresos, con ventas que superan los $2,354 USD y $1,784 USD respectivamente.
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th>Region</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Postal Code</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="10" valign="top">United States</th>
+      <th>East</th>
+      <th>New York</th>
+      <th>Jamestown</th>
+      <th>14701</th>
+      <td>2354.395000</td>
+    </tr>
+    <tr>
+      <th>Central</th>
+      <th>Indiana</th>
+      <th>Lafayette</th>
+      <th>47905</th>
+      <td>1784.046364</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">West</th>
+      <th>Wyoming</th>
+      <th>Cheyenne</th>
+      <th>82001</th>
+      <td>1603.136000</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <th>Bellingham</th>
+      <th>98226</th>
+      <td>1263.413333</td>
+    </tr>
+    <tr>
+      <th>Central</th>
+      <th>Missouri</th>
+      <th>Independence</th>
+      <th>64055</th>
+      <td>1208.685000</td>
+    </tr>
+    <tr>
+      <th>South</th>
+      <th>North Carolina</th>
+      <th>Burlington</th>
+      <th>27217</th>
+      <td>1152.843818</td>
+    </tr>
+    <tr>
+      <th>West</th>
+      <th>California</th>
+      <th>Burbank</th>
+      <th>91505</th>
+      <td>1082.386000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">East</th>
+      <th>New York</th>
+      <th>Buffalo</th>
+      <th>14215</th>
+      <td>906.349600</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <th>Beverly</th>
+      <th>1915</th>
+      <td>861.063333</td>
+    </tr>
+    <tr>
+      <th>West</th>
+      <th>Nevada</th>
+      <th>Sparks</th>
+      <th>89431</th>
+      <td>853.986667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 4. **Visualización de datos**:
    - Uso de gráficos de barras, líneas, cajas, dispersión y mapas de calor.
