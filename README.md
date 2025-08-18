@@ -95,6 +95,20 @@ Este primer paso nos ha dado una base sólida para comenzar el proceso de limpie
 
 ***Archivo:*** [exploracion_inicial.ipynb](notebooks/exploracion_inicial.ipynb)
 
+#### 2. **Análisis Valores Atípicos**
+
+El análisis de los registros con valores atípicos en el conjunto de datos de Superstore Sales, respaldado por el script de Python y la visualización adjunta, ha demostrado que estas fluctuaciones en las ventas no son errores de datos. Por el contrario, representan escenarios de precios volátiles y estratégicos, algo común en mercados dinámicos.
+
+![Evolución de las ventas](reports/figures/graficos_evolucion_ventas_outliers.png)
+Como se puede observar en el gráfico, los precios fluctúan ampliamente a lo largo de los años 2015 a 2018. Esto sugiere que las variaciones son parte del comportamiento natural del mercado, posiblemente debido a promociones, cambios estacionales o estrategias de la empresa.
+
+El script de Python, que utiliza la biblioteca fuzzywuzzy para comparar nombres de productos y un análisis de la evolución del precio por mes, permitió confirmar que estas fluctuaciones son consistentes con la dinámica de precios del mercado, en lugar de ser errores de registro. Este hallazgo es crucial para el proyecto, ya que nos permite mantener estos datos en el conjunto para un análisis más completo y realista.
+
+***Archivos:*** 
+* [eda_outliers.ipynb](notebooks/eda_outliers.ipynb)
+* [evolucion_precios_productos.py](scripts/evolucion_precios_productos.py)
+
+
 2. **Limpieza y preprocesamiento**:
    - Manejo de valores nulos, duplicados, formatos y conversiones de fechas.
 
