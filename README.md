@@ -95,7 +95,7 @@ Este primer paso nos ha dado una base sólida para comenzar el proceso de limpie
 
 ***Archivo:*** [exploracion_inicial.ipynb](notebooks/exploracion_inicial.ipynb)
 
-#### 2. **Análisis Valores Atípicos**
+### 2. **Análisis Valores Atípicos**
 
 El análisis de los registros con valores atípicos en el conjunto de datos de Superstore Sales, respaldado por el script de Python y la visualización adjunta, ha demostrado que estas fluctuaciones en las ventas no son errores de datos. Por el contrario, representan escenarios de precios volátiles y estratégicos, algo común en mercados dinámicos.
 
@@ -109,7 +109,7 @@ El script de Python, que utiliza la biblioteca fuzzywuzzy para comparar nombres 
 * [evolucion_precios_productos.py](scripts/evolucion_precios_productos.py)
 
 
-### 2. **Limpieza y preprocesamiento**
+### 3. **Limpieza y preprocesamiento**
 A partir del análisis exploratorio y del manejo de valores atípicos, se procede a la fase de limpieza de datos. El único problema identificado fue la presencia de 11 valores nulos en la columna Postal Code, lo cual se resolverá mediante una imputación.
 
 Se imputaron los valores faltantes en la columna Postal Code con el código 05403. Esta decisión se tomó al verificar que el código postal de la ciudad de Burlington en Vermont (único registro sin Postal Code pero con todos los demás datos geográficos completos) es 05403.
