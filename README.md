@@ -109,8 +109,39 @@ El script de Python, que utiliza la biblioteca fuzzywuzzy para comparar nombres 
 * [evolucion_precios_productos.py](scripts/evolucion_precios_productos.py)
 
 
-2. **Limpieza y preprocesamiento**:
-   - Manejo de valores nulos, duplicados, formatos y conversiones de fechas.
+### 2. **Limpieza y preprocesamiento**
+A partir del análisis exploratorio y del manejo de valores atípicos, se procede a la fase de limpieza de datos. El único problema identificado fue la presencia de 11 valores nulos en la columna Postal Code, lo cual se resolverá mediante una imputación.
+
+Se imputaron los valores faltantes en la columna Postal Code con el código 05403. Esta decisión se tomó al verificar que el código postal de la ciudad de Burlington en Vermont (único registro sin Postal Code pero con todos los demás datos geográficos completos) es 05403.
+
+Adicionalmente, se realizó una transformación del tipo de dato de la columna Postal Code, convirtiéndola de float a un formato de texto (string) y eliminando el .0 de los valores existentes para estandarizar el formato.
+
+El script de Python utilizado para esta tarea es el siguiente:
+```Python
+# Rellenar los valores nulos en la columna Postal Code
+df_store_sales['Postal Code'] = df_store_sales['Postal Code'].fillna('05403')
+
+# Transformación de columna Postal Code
+df_store_sales['Postal Code'] = df_store_sales['Postal Code'].astype(str)
+
+# Eliminar .0 de los demás datos
+df_store_sales['Postal Code'] = df_store_sales['Postal Code'].str.replace('.0', '', regex=False)
+
+# Verificación de la cantidad de valores nulos
+valores_nulos = df_store_sales['Postal Code'].isnull().sum()
+print(f'Cantidad de valores nulos: {valores_nulos}')
+# Salida: Cantidad de valores nulos: 0
+
+# Filas donde se imputaron los valores nulos
+filas_05403 = df_store_sales[df_store_sales['Postal Code'] == '05403']
+print(filas_05403)
+```
+
+Nota: Las columnas de fecha (Order Date y Ship Date) se mantendrán en su formato actual y se convertirán a un tipo de dato de fecha (datetime) solo cuando sea necesario para un análisis específico, a fin de optimizar el rendimiento y la memoria.
+
+Finalmente, el conjunto de datos, ahora limpio y preparado, se ha guardado en un nuevo archivo CSV llamado store_sales_limpio.csv para su uso en futuras etapas del análisis.
+
+***Archivo:*** [limpieza.ipynb](notebooks/limpieza.ipynb)
 
 3. **Análisis exploratorio de datos (EDA)**:
    - [Ej. Distribución, correlaciones, agrupaciones, etc.]
