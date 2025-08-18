@@ -93,7 +93,7 @@ Durante este proceso, se identificaron dos problemas principales:
 
 Este primer paso nos ha dado una base sólida para comenzar el proceso de limpieza y preparación de datos, asegurando que nuestro análisis posterior sea lo más preciso y fiable posible.
 
-***Archivo:*** (notebooks/exploracion_inicial.ipynb)[exploracion_inicial.ipynb]
+***Archivo:*** [exploracion_inicial.ipynb](notebooks/exploracion_inicial.ipynb)
 
 2. **Limpieza y preprocesamiento**:
    - Manejo de valores nulos, duplicados, formatos y conversiones de fechas.
