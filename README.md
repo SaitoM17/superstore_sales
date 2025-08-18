@@ -153,7 +153,7 @@ Ahora que el conjunto de datos está limpio, es posible proceder al análisis de
 * La distribución geográfica de las ventas revela cuáles son las regiones más importantes para el negocio.
 
 ```Bash
-   KPI''s de Ventas y Rendimiento Financiero
+   KPI's de Ventas y Rendimiento Financiero
 
 Ventas Totales: $2261536.78
 Ventas Promedio por Pedido: $230.77
