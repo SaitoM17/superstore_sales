@@ -653,6 +653,13 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 ## 💡 Insight clave
 
+* **Alta variabilidad de la demanda (Clase Z):** La mayoría de los productos muestran una demanda irregular e impredecible. Esta variabilidad hace que la gestión de inventario sea compleja.
+* **Productos clave (Clase A):** Un pequeño número de productos, como la Canon imageCLASS 2200 Advanced Copier, representan una porción significativa de los ingresos.
+* **Segmentos de alto valor:** El segmento "Consumer" es el que más ingresos genera. El análisis RFM identificó un grupo de Clientes VIP que son cruciales para el negocio.
+* **Estacionalidad:** Las ventas tienen picos en los meses de septiembre, noviembre y diciembre.
+* **Oportunidades de retención:** El análisis RFM también identificó a un grupo de Clientes Inactivos y En riesgo que necesitan ser reactivados.
+* **Fallas en el Market Basket Analysis:** No se encontraron combinaciones de productos comprados juntos con una frecuencia suficiente. Esto puede deberse a la baja frecuencia de compra por cliente o al min_support establecido.
+
 ---
 
 ## 📈 Recomendaciones
