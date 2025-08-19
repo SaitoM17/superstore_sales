@@ -664,9 +664,13 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 ## 📈 Recomendaciones
 
-- [Insight 1]
-- [Insight 2]
-- [Recomendación práctica o estratégica basada en los datos]
+* **Mejorar el pronóstico de la demanda:** Para productos AX y AY (alta demanda, demanda predecible/estable), se puede implementar un pronóstico más preciso con datos de ventas más granulados (semanales o diarios) para optimizar el inventario.
+* **Optimizar el inventario:** Para los productos AZ (alto valor, demanda impredecible), se debe considerar un inventario de seguridad para evitar pérdidas de ventas, o incluso considerar la venta por pedido si los costos de almacenamiento son muy altos.
+* **Segmentación de mercado:** El análisis de clústeres sugiere que las estrategias de marketing deben ser diferentes para cada grupo de clientes. No se debe promocionar de la misma manera a los "Compradores Ocasionales" que a los "Grandes Compradores".
+* **Análisis de rentabilidad por segmento:** Se puede enriquecer el análisis con datos de rentabilidad para determinar si el segmento "Consumer" es el más rentable, o si los segmentos "Corporate" o "Home Office" tienen márgenes de ganancia más altos.
+* **Identificar factores de estacionalidad:** Investigar qué tipo de productos tienen mayor demanda en los picos de ventas (noviembre y diciembre) y en los meses de menor venta (febrero y agosto). Esto permitiría una mejor planificación de inventario y campañas de marketing para esas temporadas.
+* **Analizar la venta cruzada por región:** El análisis puede ser más efectivo si se segmenta por región, ya que los patrones de compra pueden variar geográficamente.
+* **Integrar datos adicionales:** Incluir datos de publicidad, promociones, o incluso el clima puede enriquecer los modelos de predicción y los análisis de comportamiento de compra.
 
 ---
 
