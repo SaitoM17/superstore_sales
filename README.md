@@ -205,6 +205,37 @@ Tiempo Promedio de Preparación(Días): 4 días
 
 ```
 
+**KPI's de Clientes y Mercado**
+* Se identificaron 793 clientes únicos, lo que indica una base de clientes relativamente amplia se muestran los 10 principales clientes por mayor ingresos generados por dichos clientes.
+  * Sean Miller es el cliente con el mayor gasto, superando los $25,000. Este enfoque en los clientes de alto valor es importante para el crecimiento futuro.
+* El segmento de clientes "Consumer" es el más rentable, aportando más de la mitad de los ingresos totales. El segmento "Corporate" sigue en segundo lugar, mientras que el segmento "Home Office" es el que menos ingresos genera.
+
+```Bash
+     KPIs de Clientes y Mercado
+
+Cantidad de Clientes Únicos: 793
+
+Ventas por Cliente(Top 10)
+Customer ID    Customer Name            Sales
+SM-20320       Sean Miller              $ 25,043.05
+TC-20980       Tamara Chand             $ 19,052.22
+RB-19360       Raymond Buch             $ 15,117.34
+TA-21385       Tom Ashbrook             $ 14,595.62
+AB-10105       Adrian Barton            $ 14,473.57
+KL-16645       Ken Lonsdale             $ 14,175.23
+SC-20095       Sanjit Chand             $ 14,142.33
+HL-15040       Hunter Lopez             $ 12,873.30
+SE-20110       Sanjit Engle             $ 12,209.44
+CC-12370       Christopher Conant       $ 12,129.07
+
+Ventas por Segmento de Clientes
+Segment           Sales
+Consumer          $ 1,148,060.53
+Corporate         $   688,494.07
+Home Office       $   424,982.18
+
+```
+
 El análisis de los ingresos totales por producto ha permitido identificar a los 10 productos más vendidos en términos de ingresos acumulados a lo largo de los cuatro años. 
 ![Productos con Más Ventas (Top 10)](reports/figures/productos_topmas_ventas.png)
 El producto con el ingreso más alto es la Canon imageCLASS 2200 Advanced Copier, que generó $61,599.82 USD.
@@ -212,7 +243,7 @@ El producto con el ingreso más alto es la Canon imageCLASS 2200 Advanced Copier
 ![Comportamiento de las Ventas](reports/figures/comportamiento_ventas_annios.png)
 El comportamiento de las ventas a lo largo de los años 2015 a 2018 muestra un claro patrón estacional. Como se puede ver en los gráficos, los meses de septiembre, noviembre y diciembre son consistentemente los de mayores ventas, lo que probablemente se deba a la temporada de festividades. Por el contrario, los meses de febrero y agosto registran las ventas más bajas.
 
-Se ha obtenido un desglose de los ingresos generados por los clientes, destacando a aquellos que han aportado mayores ventas. Sean Miller es el cliente con el mayor ingreso registrado, con $25,043.05 USD. Se identificó que los clientes más rentables pertenecen principalmente a los segmentos de Home Office y Corporate.
+Se ha obtenido un desglose de los ingresos generados por los clientes, destacando a aquellos que han aportado mayores ventas. Sean Miller es el cliente con el mayor ingreso registrado, con $25,043.05 USD. Se identificó que los clientes más rentables pertenecen principalmente a los segmentos de Consumer, Home Office y Corporate.
 <div>
 <table border="1" class="dataframe">
   <thead>
