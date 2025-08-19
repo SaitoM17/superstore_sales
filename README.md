@@ -696,7 +696,7 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 ### 1. Clonar este repositorio:
 ```bash
-git clone https://github.com/tu_usuario/nombre_del_proyecto.git
+git clone https://github.com/SaitoM17/superstore_sales.git
 ```
 ### 2. Uso de un Entorno Virtual para Aislar Dependencias
 
