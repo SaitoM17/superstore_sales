@@ -488,11 +488,48 @@ Finalmente, se ha obtenido información sobre los ingresos por ubicación geogr�
 </table>
 </div>
 
-4. **Visualización de datos**:
-   - Uso de gráficos de barras, líneas, cajas, dispersión y mapas de calor.
+### 5. **Modelado o reportes**
 
-5. **Modelado o reportes (opcional)**:
-   - [Si aplica: modelos de ML, clustering, predicciones, etc.]
+En la siguiente fase del proyecto, se implementaron modelos de análisis para segmentar a los clientes, entender su comportamiento, optimizar las operaciones y desarrollar estaegías avanzadas.
+
+**Segmentación de Clientes con Análisis RFM**
+Se utilizó el Análisis RFM (Recencia, Frecuencia, Monetario) para clasificar a los clientes en diferentes grupos estratégicos. Este modelo evalúa el comportamiento de compra de cada cliente basándose en:
+
+* **Recencia (R):** Cuánto tiempo ha pasado desde la última compra.
+* **Frecuencia (F):** Con qué frecuencia el cliente realiza compras.
+* **Monetario (M):** Cuánto dinero ha gastado el cliente en total.
+
+Este análisis ha permitido identificar dos grupos clave para la estrategia de negocio: Clientes VIP y Clientes en Riesgo.
+
+***Clientes VIP***
+
+Este segmento incluye a los clientes más valiosos y leales. Tienen una alta recencia (compran a menudo), una alta frecuencia y un alto valor monetario. La estrategia para este grupo es de fidelización, ofreciéndoles promociones exclusivas, programas de lealtad y atención personalizada para mantener su compromiso.
+
+```Bash
+Clientes VIP
+             Recency  Frequency   Monetary R_score F_score M_score RFM_score Segmento
+Customer ID
+AB-10105          41         20  14473.571       4       5       5       455      VIP
+AH-10075          34         20   3250.337       4       5       4       454      VIP
+AI-10855          13         18   4375.786       5       5       5       555      VIP
+AS-10090          28         25   3255.310       4       5       4       454      VIP
+AT-10735          13         16   3831.864       5       4       4       544      VIP
+```
+
+***Clientes en Riesgo***
+
+Este grupo está compuesto por clientes que no han realizado una compra en un tiempo considerable (baja recencia), tienen una baja frecuencia y un bajo valor monetario. Estos clientes están en peligro de dejar de comprar por completo. La estrategia para este segmento debe enfocarse en la retención, a través de campañas de reactivación, ofertas personalizadas o encuestas para entender la razón de su inactividad.
+
+```Bash
+Clientes En riesgo
+             Recency  Frequency  Monetary R_score F_score M_score RFM_score   Segmento
+Customer ID
+AB-10015         415          6   886.156       1       1       1       111  En riesgo
+AC-10420         232          5   925.800       1       1       1       111  En riesgo
+AC-10660         282          6   657.316       1       1       1       111  En riesgo
+AF-10885         415          7   861.565       1       1       1       111  En riesgo
+AG-10300         118          5   367.548       2       1       1       211  En riesgo
+```
 
 ---
 
