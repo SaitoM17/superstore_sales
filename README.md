@@ -667,10 +667,17 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 - Python
 - Pandas
+- Numpy
 - Matplotlib
 - Seaborn
-- Jupyter Notebook / Google Colab
-- [Otras herramientas que uses, como Scikit-learn, Plotly, etc.]
+- Jupyter Notebook
+- fuzzywuzzy
+- mlxtend.frequent_patterns.apriori y mlxtend.frequent_patterns.association_rules
+- prophet
+- sklearn.cluster.KMeans
+- sklearn.preprocessing.StandardScaler
+- Git & GitHub
+- Power BI
 
 ---
 
