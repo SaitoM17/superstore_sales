@@ -574,6 +574,42 @@ Proyección de ventas para Riverside Furniture Stanwyck Manor Table Series:
 ```
 Estos resultados permiten a la empresa tomar decisiones informadas sobre la gestión de inventario y la planificación de ventas para los próximos meses, asegurando que se tenga el stock adecuado para cubrir la demanda proyectada.
 
+**Análisis ABC-XYZ**
+
+Este método es crucial para la gestión de inventario, ya que combina dos clasificaciones:
+
+* Análisis ABC: Clasifica los productos según su contribución a los ingresos totales (principio de Pareto).
+  * Clase A: Productos que representan aproximadamente el 80% de las ventas.
+  * Clase B: Productos que representan el siguiente 15% de las ventas.
+  * Clase C: Productos que representan el 5% restante de las ventas.
+
+* Análisis XYZ: Clasifica los productos según la variabilidad de su demanda.
+  * Clase X: Demanda constante y predecible (bajo coeficiente de variación).
+  * Clase Y: Demanda con variaciones estacionales o de tendencia (coeficiente de variación medio).
+  * Clase Z: Demanda irregular e impredecible (alto coeficiente de variación).
+
+La combinación de estas dos clasificaciones permite crear categorías de productos para una gestión de inventario más precisa.
+
+El análisis arrojó una clasificación detallada de cada producto. Por ejemplo, los productos más rentables, como la Canon imageCLASS 2200 Advanced Copier y la Fellowes PB500 Electric Punch Plastic Comb Binding Machine, son clasificados como Clase A debido a su alta contribución a los ingresos.
+
+Sin embargo, en el análisis XYZ, la mayoría de los productos se clasifican como Clase Z debido a la alta variabilidad de sus ventas (representada por el coeficiente de variación, cv). El valor NaN en la columna std y cv para muchos productos se debe a que solo hay una venta registrada, lo que impide el cálculo de la desviación estándar. Esto sugiere una demanda generalmente irregular para muchos artículos.
+
+La combinación de ambas clasificaciones crea categorías de productos, como AZ (productos de alto valor con demanda impredecible) y CZ (productos de bajo valor con demanda impredecible), lo que facilita la toma de decisiones estratégicas.
+
+```Bash
+                                           Product Name  Sales_totales  Porcentaje  Porcentaje_acumulado ABC          mean          std         cv XYZ ABC_XYZ
+0                 Canon imageCLASS 2200 Advanced Copier      61599.824    2.723804              2.723804   A  12319.964800  3520.927315  28.579037   Z      AZ
+1     Fellowes PB500 Electric Punch Plastic Comb Bin...      27453.384    1.213926              3.937730   A   2745.338400  1851.752901  67.450807   Z      AZ
+2     Cisco TelePresence System EX90 Videoconferenci...      22638.480    1.001022              4.938752   A  22638.480000          NaN        NaN   Z      AZ
+3          HON 5400 Series Task Chairs for Big and Tall      21870.576    0.967067              5.905819   A   2733.822000  1212.397259  44.348069   Z      AZ
+4            GBC DocuBind TL300 Electric Binding System      19823.479    0.876549              6.782368   A   1802.134455  1032.477608  57.291930   Z      AZ
+...                                                 ...            ...         ...                   ...  ..           ...          ...        ...  ..     ...
+1844                  Acme Serrated Blade Letter Opener          7.632    0.000337             99.999074   C      7.632000          NaN        NaN   Z      CZ
+1845                                Grip Seal Envelopes          7.072    0.000313             99.999387   C      7.072000          NaN        NaN   Z      CZ
+1846                                           Xerox 20          6.480    0.000287             99.999673   C      6.480000          NaN        NaN   Z      CZ
+1847                                            Avery 5          5.760    0.000255             99.999928   C      5.760000          NaN        NaN   Z      CZ
+1848  Eureka Disposable Bags for Sanitaire Vibra Gro...          1.624    0.000072            100.000000   C      1.624000          NaN        NaN   Z      CZ
+```
 ---
 
 ## 📌 Vista previa del Dashboard
