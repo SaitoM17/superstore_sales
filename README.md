@@ -501,7 +501,7 @@ Se utilizó el Análisis RFM (Recencia, Frecuencia, Monetario) para clasificar a
 
 Este análisis ha permitido identificar dos grupos clave para la estrategia de negocio: Clientes VIP y Clientes en Riesgo.
 
-***Clientes VIP***
+*Clientes VIP*
 
 Este segmento incluye a los clientes más valiosos y leales. Tienen una alta recencia (compran a menudo), una alta frecuencia y un alto valor monetario. La estrategia para este grupo es de fidelización, ofreciéndoles promociones exclusivas, programas de lealtad y atención personalizada para mantener su compromiso.
 
@@ -516,7 +516,7 @@ AS-10090          28         25   3255.310       4       5       4       454    
 AT-10735          13         16   3831.864       5       4       4       544      VIP
 ```
 
-***Clientes en Riesgo***
+*Clientes en Riesgo*
 
 Este grupo está compuesto por clientes que no han realizado una compra en un tiempo considerable (baja recencia), tienen una baja frecuencia y un bajo valor monetario. Estos clientes están en peligro de dejar de comprar por completo. La estrategia para este segmento debe enfocarse en la retención, a través de campañas de reactivación, ofertas personalizadas o encuestas para entender la razón de su inactividad.
 
@@ -530,6 +530,11 @@ AC-10660         282          6   657.316       1       1       1       111  En 
 AF-10885         415          7   861.565       1       1       1       111  En riesgo
 AG-10300         118          5   367.548       2       1       1       211  En riesgo
 ```
+
+**Market Baskt Analysis**
+Se realizó un Market Basket Analysis utilizando el algoritmo Apriori para identificar combinaciones de productos que se compran juntos con frecuencia. Sin embargo, con el umbral de soporte (min_support) establecido en 0.002, no se encontraron conjuntos de productos que cumplieran con el criterio. Esto significa que ninguna combinación de dos o más productos se compró junta en al menos el 0.2% de todas las transacciones.
+
+Este resultado sugiere que el conjunto de datos de Superstore Sales no tiene patrones de compra conjunta lo suficientemente fuertes o frecuentes para ser detectados con el soporte mínimo actual. Para obtener resultados, se podría probar un valor de min_support más bajo, aunque esto podría generar una gran cantidad de reglas de asociación menos significativas.
 
 ---
 
