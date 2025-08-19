@@ -195,6 +195,16 @@ West       710219.6845
 Name: Sales, dtype: float64
 ```
 
+**KPI's de la Eficiencia Operativa**
+* Este KPI es fundamental para evaluar la agilidad de la cadena de suministro y la satisfacción del cliente. Un tiempo de preparación corto y consistente indica un proceso logístico eficiente y una capacidad sólida para cumplir con los pedidos de manera oportuna.
+
+```Bash
+    KPIs de la Eficiencia Operativa    
+
+Tiempo Promedio de Preparación(Días): 4 días
+
+```
+
 El análisis de los ingresos totales por producto ha permitido identificar a los 10 productos más vendidos en términos de ingresos acumulados a lo largo de los cuatro años. 
 ![Productos con Más Ventas (Top 10)](reports/figures/productos_topmas_ventas.png)
 El producto con el ingreso más alto es la Canon imageCLASS 2200 Advanced Copier, que generó $61,599.82 USD.
