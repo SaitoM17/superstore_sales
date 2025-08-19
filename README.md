@@ -647,6 +647,7 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 ![Ventas y Rendimiento](dashboard/ventas_rendimiento.png)
 ![Logística y Entregas](dashboard/logistica_entregas.png)
+![Análisis de Productos](dashboard/analisis_productos.png)
 
 ---
 
