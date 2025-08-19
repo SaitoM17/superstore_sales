@@ -610,6 +610,37 @@ La combinación de ambas clasificaciones crea categorías de productos, como AZ 
 1847                                            Avery 5          5.760    0.000255             99.999928   C      5.760000          NaN        NaN   Z      CZ
 1848  Eureka Disposable Bags for Sanitaire Vibra Gro...          1.624    0.000072            100.000000   C      1.624000          NaN        NaN   Z      CZ
 ```
+
+**Segmentación por Comportamiento(Clustering: K-Means)**
+
+Para finalizar, se implementó el Análisis de Segmentación por Comportamiento utilizando el algoritmo de clustering K-Means. El objetivo es agrupar a los clientes con comportamientos de compra similares para crear perfiles detallados y diseñar estrategias de marketing más efectivas.
+
+*Metodología K-Means*
+* **Preparación de datos:** Se calculó la Recencia, Frecuencia y Valor Monetario de cada cliente, y se escalaron los datos para que el algoritmo K-Means funcionara correctamente.
+* **Método del Codo:** Se utilizó el Método del Codo para determinar el número óptimo de clústeres. Como se observa en el gráfico, el "codo" más pronunciado se encuentra en k=4, lo que indica que 4 clústeres son la mejor opción para segmentar a los clientes de manera significativa. 
+![Método del Codo](reports/figures/segmentacion_comportamiento_metodo_codo.png)
+* **Modelado y Segmentación:** Se entrenó el modelo K-Means con k=4 y se asignó a cada cliente a un clúster. La visualización de los clústeres confirma que el modelo logró agrupar a los clientes de manera coherente.
+![Comportamiento_seg_clientes](reports/figures/segmentacion_comportamiento_seg_clientes_k_means.png)
+
+*Perfiles de Clientes*
+
+Los perfiles de cada clúster se crearon basándose en sus valores promedio de Recencia, Frecuencia y Valor Monetario.
+```Bash
+Perfil de Clusters
+         Recency  Frequency  Monetary  Num_Clientes
+Cluster
+0          73.24      17.18   3599.82           268
+1          93.18       8.70   1561.23           357
+2         110.64      20.92   9500.93            61
+3         541.57       7.59   1494.11           107
+```
+A partir de estos perfiles, se pueden definir los siguientes segmentos:
+
+* **Clúster 0:** Compradores Frecuentes. Clientes con una recencia relativamente baja y una alta frecuencia de compra.
+* **Clúster 1:** Compradores Ocasionales. Tienen una recencia y frecuencia promedio.
+* **Clúster 2:** Grandes Compradores. Estos clientes tienen la recencia más alta y la frecuencia más alta, además del valor monetario más alto, por lo que son clientes de alto valor.
+* **Clúster 3:** Clientes Inactivos. Tienen la recencia más alta, lo que indica que no han comprado en mucho tiempo. Tienen baja frecuencia y valor monetario.
+
 ---
 
 ## 📌 Vista previa del Dashboard
