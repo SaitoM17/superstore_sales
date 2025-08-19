@@ -80,11 +80,11 @@ Fuente: [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sa
 La primera fase de nuestro proyecto fue una exploración exhaustiva del conjunto de datos Superstore Sales. Esta etapa nos permitió obtener una visión general de su composición, confirmando que contiene 9800 registros y 18 columnas.
 
 Esta exploración inicial es crucial para identificar posibles problemas que podrían afectar el análisis, como:
-•	Valores duplicados.
-•	Valores nulos.
-•	Errores de registro (por ejemplo, errores tipográficos).
-•	Valores atípicos (valores que se desvían significativamente de la mayoría de los datos).
-•	Distribución de datos.
+*	Valores duplicados.
+*	Valores nulos.
+*	Errores de registro (por ejemplo, errores tipográficos).
+*	Valores atípicos (valores que se desvían significativamente de la mayoría de los datos).
+*	Distribución de datos.
 
 Durante este proceso, se identificaron dos problemas principales:
 1.	Se encontraron 11 registros con valores nulos en la columna Postal Code. Afortunadamente, este problema no representa un gran obstáculo, ya que contamos con información complementaria en otras columnas que nos permitirá rellenar los datos faltantes de manera precisa.
