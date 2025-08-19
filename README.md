@@ -724,6 +724,15 @@ python -m venv venv
 
 ## 📂 Archivos
 
+**Reportes:**
+* [Análisis Exploratorio (Primer acercamiento)](reports/Resumen_ejecutivo_eda_primer_acercamiento.docx)
+* [Análisis exploratorio de valores atípicos (Outliers)](reports/Resumen_ejecutivo_eda_outliers.docx)
+* [Limpieza de datos](reports/Resumen_ejecutivo_limpieza.docx)
+* [Obtención de KPI's](reports/Resumen_ejecutivo_KPIs.docx)
+* [Objetivos Proyecto](reports/Resumen_ejecutivo_objetivo_proyecto.docx)
+* [Modelos y algoritmos](reports/Resumen_ejecutivo_models.docx)
+* [Dashboard SuperStore Sales](reports/Resumen_ejecutivo_dashboard_superstore_sales.docx)
+
 ---
 
 ## 👤 Autor
