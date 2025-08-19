@@ -645,6 +645,8 @@ A partir de estos perfiles, se pueden definir los siguientes segmentos:
 
 ## 📌 Vista previa del Dashboard
 
+![Ventas y Rendimiento](dashboard/ventas_rendimiento.png)
+
 ---
 
 ## 💡 Insight clave
