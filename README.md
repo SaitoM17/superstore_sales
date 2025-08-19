@@ -493,6 +493,7 @@ Finalmente, se ha obtenido información sobre los ingresos por ubicación geogr�
 En la siguiente fase del proyecto, se implementaron modelos de análisis para segmentar a los clientes, entender su comportamiento, optimizar las operaciones y desarrollar estaegías avanzadas.
 
 **Segmentación de Clientes con Análisis RFM**
+
 Se utilizó el Análisis RFM (Recencia, Frecuencia, Monetario) para clasificar a los clientes en diferentes grupos estratégicos. Este modelo evalúa el comportamiento de compra de cada cliente basándose en:
 
 * **Recencia (R):** Cuánto tiempo ha pasado desde la última compra.
@@ -532,9 +533,46 @@ AG-10300         118          5   367.548       2       1       1       211  En 
 ```
 
 **Market Baskt Analysis**
+
 Se realizó un Market Basket Analysis utilizando el algoritmo Apriori para identificar combinaciones de productos que se compran juntos con frecuencia. Sin embargo, con el umbral de soporte (min_support) establecido en 0.002, no se encontraron conjuntos de productos que cumplieran con el criterio. Esto significa que ninguna combinación de dos o más productos se compró junta en al menos el 0.2% de todas las transacciones.
 
 Este resultado sugiere que el conjunto de datos de Superstore Sales no tiene patrones de compra conjunta lo suficientemente fuertes o frecuentes para ser detectados con el soporte mínimo actual. Para obtener resultados, se podría probar un valor de min_support más bajo, aunque esto podría generar una gran cantidad de reglas de asociación menos significativas.
+
+**Predicción de demanda (Arima/Prophet)**
+
+Este modelo de series de tiempo es ideal para pronosticar datos con patrones estacionales y tendencias claras, como las ventas. El proceso consiste en:
+* Seleccionar un producto del conjunto de datos.
+* Agrupar las ventas de ese producto por mes.
+* Entrenar el modelo Prophet con los datos históricos.
+* Proyectar las ventas para los próximos 12 meses.
+
+En el ejemplo proporcionado, el modelo predijo la demanda para el producto "Riverside Furniture Stanwyck Manor Table Series".
+
+La gráfica muestra la proyección de la demanda del producto, combinando las ventas históricas (Ventas reales) con la predicción del modelo (Predicción) y su respectivo Intervalo de confianza.
+
+![Ejemplo-arima_prophet](reports/figures/ejemplo_arima_prophet.png)
+
+Se puede observar que la predicción captura el patrón estacional, con un pico significativo en abril de 2019, que probablemente se deba a la misma estacionalidad que afecta a los meses de otoño de cada año (septiembre, noviembre y diciembre). La predicción para 2019 muestra una tendencia de crecimiento para la segunda mitad del año.
+
+Los resultados numéricos de la proyección para los últimos 12 meses son los siguientes:
+
+```Bash
+Proyección de ventas para Riverside Furniture Stanwyck Manor Table Series:
+           ds        yhat  yhat_lower  yhat_upper
+42 2018-10-31  104.380368   38.301542  169.824553
+43 2018-11-30  111.117632   48.140810  180.131905
+44 2018-12-31  118.401803   46.573913  185.213402
+45 2019-01-31  123.434407   53.825881  188.312556
+46 2019-02-28   82.903667   15.981512  148.599781
+47 2019-03-31   96.812380   23.706307  166.625854
+48 2019-04-30  418.275813  343.802698  485.045790
+49 2019-05-31   57.192949  -17.439616  128.563516
+50 2019-06-30   94.289320   16.170017  168.344326
+51 2019-07-31  129.246162   46.181183  212.691419
+52 2019-08-31  162.789632   73.549253  252.682909
+53 2019-09-30  327.603421  234.645271  422.919121
+```
+Estos resultados permiten a la empresa tomar decisiones informadas sobre la gestión de inventario y la planificación de ventas para los próximos meses, asegurando que se tenga el stock adecuado para cubrir la demanda proyectada.
 
 ---
 
